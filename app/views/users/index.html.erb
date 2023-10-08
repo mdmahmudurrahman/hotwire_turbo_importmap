@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Contact number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.city %></td>
+      <td><%= user.state %></td>
+      <td><%= user.country %></td>
+      <td><%= user.contact_number %></td>
+      <td>
+        <%= link_to "view", user, class:"btn btn-info" %>
+        <%= link_to "edit", edit_user_path(user), class:"btn btn-primary" %>
+        <%= link_to "delete", user, method: :delete, data: { confirm: "Are you sure?" },
+          class:"btn btn-danger" %>
+      </td>
+      
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New user", new_user_path %>
